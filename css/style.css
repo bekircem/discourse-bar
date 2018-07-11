@@ -87,6 +87,10 @@ ul {
   margin-left: auto;
   padding: 0 8px; }
 
+.dumpcontent {
+  padding: 20px;
+  background-color: #fa6c8d; }
+
 .b-header {
   width: 100%;
   background-color: #0088cc;
