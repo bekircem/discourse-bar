@@ -1,0 +1,383 @@
+// @import "theme_variables";
+
+$primary: #222222 !default;
+$primary-low: #e9e9e9 !default;
+$secondary: #ffffff !default;
+$tertiary: #0088cc !default;
+$quaternary: #e45735 !default;
+$quaternary-low: #f7cdc2 !default;
+$header_background: #ffffff !default;
+$header_primary: #333333 !default;
+$highlight: #ffff4d !default;
+$danger: #e45735 !default;
+$success: #009900 !default;
+$love: #fa6c8d !default;
+
+//More variables
+$lightness: #fff;
+$dark-light-diff: fff;
+$scale-color: fff;
+
+//Even more variables
+$font-up-1: 1.1487em;
+$font-down-1: 0.8706em;
+$line-height-small: 1;
+$line-height-medium: 1.2;
+$line-height-large: 1.4;
+
+//Resets
+body {
+  margin: 0;
+}
+
+ul {
+  margin: 0 0 9px 25px;
+  padding: 0;
+}
+
+.clearfix {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// Base
+// --------------------------------------------------
+
+%nav {
+  margin-left: 0;
+  list-style: none;
+  li a {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+// Pill nav
+// --------------------------------------------------
+
+.nav-pills {
+  @extend %nav;
+  @extend .clearfix;
+
+  > li {
+    float: left;
+    margin-right: 5px;
+
+    > a {
+      border: none;
+      padding: 6px 12px;
+      color: $primary;
+      font-size: $font-up-1;
+      line-height: $line-height-medium;
+      transition: background 0.15s;
+
+      .d-icon {
+        margin-right: 5px;
+        opacity: 0.65;
+      }
+
+      &:hover {
+        color: $quaternary;
+        background-color: $quaternary-low;
+      }
+    }
+
+    &.active > a,
+    > a.active {
+      color: $secondary;
+      background-color: $quaternary;
+
+      .d-icon {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Stacked nav
+// --------------------------------------------------
+
+.nav-stacked {
+  @extend %nav;
+  padding: 0;
+  overflow: hidden;
+  background: $primary-low;
+
+  li {
+    border-bottom: 1px solid $primary-low;
+    position: relative;
+
+    &:last-of-type {
+      border-bottom: 0;
+    }
+
+    &.indent {
+      padding-left: 15px;
+    }
+  }
+
+  a {
+    margin: 0;
+    padding: 13px;
+    font-size: $font-up-1;
+    line-height: $line-height-small;
+    cursor: pointer;
+    color: $primary;
+
+    &.active {
+      color: $secondary;
+      background-color: $quaternary;
+
+      &::after {
+        left: 90%;
+        top: 33%;
+        content: " ";
+        position: absolute;
+        border: 8px solid transparent;
+        border-left-color: $secondary;
+      }
+    }
+  }
+
+  .count {
+    font-size: $font-down-1;
+  }
+
+  .glyph {
+    font-size: $font-down-1;
+    width: 1.25em;
+    text-align: center;
+    margin-right: 0.5em;
+    line-height: $line-height-large;
+  }
+}
+
+
+//Wrap
+.wrap {
+    max-width: 1110px;
+}
+
+.wrap {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0 8px;
+}
+
+//Brand Theme Header Component
+.b-header {
+  width: 100%;
+  background-color: $tertiary;
+  height: 48px;
+  margin-bottom: 0;
+
+  .contents {
+    margin: 8px 0;
+  }
+
+  .title {
+    float: left;
+    margin-right: 24px;
+    a {
+      color: $secondary;
+    }
+    &:visited {
+      color: $secondary;
+    }
+  }
+
+  #brand-logo {
+    max-height: 32px;
+  }
+
+  #brand-text-logo {
+    line-height: 32px;
+    margin: 0;
+  }
+
+  nav.links {
+    float: left;
+  }
+
+  .nav-pills {
+    margin-bottom: 0;
+    > li > a {
+      color: $secondary;
+      line-height: 22px;
+      &:hover {
+        color: $quaternary;
+        background-color: dark-light-diff($quaternary, $tertiary, -70%, 70%);
+      }
+      &.active > a, > a.active {
+        color: $secondary;
+        background-color: $quaternary;
+      }
+    }
+  }
+
+  .panel {
+    float: right;
+    position: relative;
+  }
+
+  .menu-panel {
+    position: absolute;
+    top: 100%;
+    right: -10px;
+    z-index: 1001;
+  }
+
+  ul.icons {
+    text-align: center;
+    margin: 0 0 0 5px;
+    > li {
+      float: left;
+      list-style: none;
+    }
+    [class^="fa fa-"] {
+      width: 28px;
+      height: 28px;
+      font-size: 16px;
+      line-height: 28px;
+      display: inline-block;
+      margin: 2px;
+    }
+  }
+
+  .panel > ul.icons {
+    float: right;
+    [class^="fa fa-"] {
+      color: $secondary;
+    }
+  }
+}
+
+.d-header {
+    margin-top: 48px;
+}
+
+.docked .d-header {
+    margin-top: 0;
+}
+
+.b-banner {
+  display: none;
+  padding-top: 111px;
+  margin-bottom: -111px;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 150%;
+  h1 {
+    margin: 30px 0 20px 0;
+  }
+  .description {
+    margin:0 20%;
+  }
+  &.default {
+    text-align: center;
+    background-color: $tertiary;
+    color: scale-color($tertiary, $lightness: 95%);
+    img.banner-image {
+      width: 100%;
+      max-width: 100%;
+    }
+    .overlay {
+      background-color: scale-color($quaternary, $lightness: -85%);
+      color: scale-color($quaternary, $lightness: 95%);
+      text-shadow: 1px 1px scale-color($quaternary, $lightness: -100%);
+      position: absolute;
+      top: 111px;
+      width: 100%;
+      height: 100%;
+      padding: 30px 0;
+      visibility: hidden;
+      opacity: 0;
+      transition: visibility 0s, opacity 0.2s linear;
+      h1 {
+        color: $quaternary;
+      }
+    }
+    &:hover .overlay {
+      visibility: visible;
+      opacity: 0.85;
+    }
+  }
+  &.smart {
+    background-color: dark-light-diff($quaternary, $secondary, 70%, -70%);
+    .banner-image {
+      border: 32px solid  scale-color($quaternary, $lightness: 60%);
+      border-radius: 250px;
+      float: left;
+      margin:15px 30px 10px 10px;
+      position: relative;
+      height: 215px;
+      width: 215px;
+      overflow: hidden;
+    }
+    h1 {
+      color: $quaternary;
+      margin-top: 50px;
+    }
+    .banner-links {
+      float: right;
+      width: 30%;
+      margin-left: 30px;
+      font-size: 14px;
+      line-height: 100%;
+      ul {
+        margin: 0 0 0 10px;
+        li {
+          margin: 10px 0;
+        }
+      }
+    }
+  }
+}
+.navigation-topics .b-banner, .navigation-categories .b-banner {
+  display: block;
+}
+
+@media only screen and (max-width: 1000px) {
+  .b-banner {
+    font-size: 14px;
+    line-height: 125%;
+  }
+  .b-banner.smart .banner-image {
+    display: none;
+  }
+  .b-banner.smart .banner-image, .b-banner.smart .banner-text {
+    margin-bottom: 10px;
+  }
+  .b-banner .description {
+    margin: 0;
+  }
+  .b-banner.smart .banner-links {
+    width: 35%;
+  }
+  .banner-links > div > p:first-child {
+    margin-top: 0;
+  }
+  .b-banner h1 {
+    margin: 0;
+    font-size: 1.4em;
+  }
+  .b-banner.smart h1 {
+    margin: 20px 0;
+  }
+  .b-banner.default .overlay {
+    padding: 10px 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .b-banner {
+    display: none !important;
+  }
+}
+
