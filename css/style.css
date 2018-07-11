@@ -90,6 +90,7 @@ ul {
 .b-header {
   width: 100%;
   background-color: #0088cc;
+  font-family: "Montserrat";
   height: 48px;
   margin-bottom: 0; }
   .b-header .contents {

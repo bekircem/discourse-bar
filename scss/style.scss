@@ -25,6 +25,9 @@ $line-height-small: 1;
 $line-height-medium: 1.2;
 $line-height-large: 1.4;
 
+//Typography
+$font-family: 'Montserrat';
+
 //Resets
 body {
   margin: 0;
@@ -32,7 +35,7 @@ body {
 
 ul {
   margin-top: auto;
-  margin-bottom: auto;
+  margin-bottom:auto;
 }
 
 .clearfix {
@@ -174,6 +177,7 @@ ul {
 .b-header {
   width: 100%;
   background-color: $tertiary;
+  font-family: $font-family;
   height: 48px;
   margin-bottom: 0;
 
