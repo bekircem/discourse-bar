@@ -184,7 +184,8 @@ ul {
   width: 100%;
   background-color: $tertiary;
   font-family: $font-family;
-  height: 48px;
+  height: auto;
+  position: fixed;
   margin-bottom: 0;
 
   .contents {
